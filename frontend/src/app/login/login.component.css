@@ -1,0 +1,65 @@
+.login-background {
+  background: url("../../assets/21.jpg") no-repeat;
+  background-size: cover;
+  filter: blur(0.5px);
+  /* background: linear-gradient(#020024, #238c98, #00d4ff) no-repeat center center fixed; */
+  height: 92.3%;
+}
+
+.card-width {
+  width: 26rem;
+}
+
+.login-heading {
+  font-family: "Roboto Mono", monospace;
+  font-size: 40px;
+  padding: 70px;
+}
+
+.red-error {
+  font-size: 14px;
+  color: red;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 468px) {
+  .card-width {
+    width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .card-width {
+    width: 15rem;
+  }
+
+  .login-heading {
+    font-size: 16px;
+    padding: 40px;
+  }
+}
+.animate-charcter
+{
+  background-image: linear-gradient(
+    -225deg,
+    #2dec76 0%,
+    #df1868 29%,
+    #1b1bda 67%,
+    #2a2dd1 100%
+  );
+  background-size: 200% auto;
+  color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3000ms linear infinite;
+  display: inline-block;
+      font-size: 30px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}

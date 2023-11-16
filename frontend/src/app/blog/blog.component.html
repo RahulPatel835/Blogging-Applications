@@ -1,0 +1,20 @@
+<!-- <navbar (onSearch)="onDataPassed($event)"></navbar> -->
+  <!-- <div >
+    <input class="btn22" type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+    <button class="btn22" (click)="search()">Search</button>
+  </div> -->
+    <div *ngIf="!isLoading">
+    <h1 id="h1">Blog Posts</h1>
+    <div *ngFor="let post of paginatedPosts" class="blog-post">
+      <img [src]="post.img" alt="{{ post.title }}" class="post-image" >
+      <h2><b>{{ post.title }}</b></h2>
+      <p>{{ post.content }}</p>
+    </div>
+  </div>  
+  <app-pagination
+    *ngIf="!isLoading && totalPages > 1"
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChanged)="onPageChanged($event)"
+  ></app-pagination>
+  

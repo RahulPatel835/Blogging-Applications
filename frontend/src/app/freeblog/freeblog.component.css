@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  .container {
+    width: 500px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .open-full-blog {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .open-full-blog:hover {
+    background-color: #333;
+  }
+  
+  .blog-content {
+    display: none;
+  }
+  

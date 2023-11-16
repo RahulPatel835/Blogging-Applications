@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-md p-3 mb-2  navbar-light" style="background-color: #515de8;">
+    <a class="navbar-brand animate-charcter" href="#">Blogging Applicaion</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul *ngIf="!loginStatus" class="navbar-nav">
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" routerLink="/" (click)="isMenuCollapsed=true">Home</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="/login" (click)="isMenuCollapsed=true">Login</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="/signup" (click)="isMenuCollapsed=true">Signup</a>
+            </li>
+        </ul>
+        <ul *ngIf="loginStatus" class="navbar-nav">
+            <input type="text" #input placeholder="Search" class="searchUser mt-1 rounded"
+                [ngbTypeahead]="profileService.typeahead" [(ngModel)]="profileService.model"
+                [inputFormatter]="profileService.formatter" [resultFormatter]="profileService.formatter"
+                [editable]="false" (selectItem)="redirectToUser($event,input)" ss>
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" routerLink="/home" (click)="isMenuCollapsed=true">Home</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="/post/new" (click)="isMenuCollapsed=true">Create Post</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" routerLink="/{{ username }}" (click)="isMenuCollapsed=true">Profile</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link cursor-pointer" (click)="logout()">Log Out</a>
+            </li>
+    
+             
+        </ul>
+        <div *ngIf="showSearch">
+            <input class="btn22" type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+            <button class="btn btn-primary" (click)="search(searchTerm)" >Search</button>
+        </div>
+        <ul class="navbar-nav ml-auto navbar-expand-lg navbar-expand-sm d-flex flex-row warn">
+            <a routerLink="/freeblog"><button type="button" class="btn btn-outline-warning" (click)="ontoggle()" >Free Blog</button></a>
+        </ul> 
+
+    </div>
+     
+</nav>
